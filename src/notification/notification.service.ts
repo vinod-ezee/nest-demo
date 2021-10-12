@@ -5,7 +5,13 @@ import { Cron } from '@nestjs/schedule';
 export class NotificationService {
   private readonly logger = new Logger(NotificationService.name);
 
-  @Cron('0 26 16 * * *', {
+  @Cron('*/30 * * * * *') // run cron every 30 sec
+  handleCrons() {
+    const curTime = new Date().toLocaleString();
+    this.logger.debug('Called on every second: ' + curTime);
+  }
+  
+  @Cron('50 40 19 * * *', {
     timeZone: 'Asia/Seoul',
   })
   handleCron() {

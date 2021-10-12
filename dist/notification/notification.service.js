@@ -17,13 +17,23 @@ let NotificationService = NotificationService_1 = class NotificationService {
     constructor() {
         this.logger = new common_1.Logger(NotificationService_1.name);
     }
+    handleCrons() {
+        const curTime = new Date().toLocaleString();
+        this.logger.debug('Called on every second: ' + curTime);
+    }
     handleCron() {
         const curTime = new Date().toLocaleString();
-        this.logger.debug('Called when the second: ' + curTime);
+        this.logger.debug('Called everyday on specific time: ' + curTime);
     }
 };
 __decorate([
-    schedule_1.Cron('0 26 16 * * *', {
+    schedule_1.Cron('*/30 * * * * *'),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", void 0)
+], NotificationService.prototype, "handleCrons", null);
+__decorate([
+    schedule_1.Cron('50 40 19 * * *', {
         timeZone: 'Asia/Seoul',
     }),
     __metadata("design:type", Function),
