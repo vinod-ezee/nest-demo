@@ -1,0 +1,33 @@
+Get All Data
+
+query{
+  getAllStudents{
+    _id
+    FirstName,
+    LastName,
+  }
+}
+
+Add Data 
+
+mutation($student: StudentInput) {
+  create(student: $student) {
+    _id
+    FirstName
+    LastName
+    Standard
+    MotherName
+    FatherName
+  }
+}
+
+{
+  "student": {
+    "_id": "abc43",
+    "FirstName": "Rohit",
+    "LastName": "Sharma",
+    "Standard": 10,
+    "FatherName": "Jagadesh",
+    "MotherName": "Lalitha"
+  }
+}
