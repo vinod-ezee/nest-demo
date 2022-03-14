@@ -10,7 +10,7 @@ export class StudentService {
       FatherName: 'Gopala Krishna',
       MotherName: 'Mallikasulamma',
     },
-  ]; // while testing graphql api add more test data
+  ];
 
   getAllStudents(): Student[] {
     return this.students;
@@ -23,6 +23,13 @@ export class StudentService {
 
   createStudent(newStudent: any): Student {
     this.students.push(newStudent);
+    return newStudent;
+  }
+
+  updateStudent(id: string, newStudent: any): Student {
+    this.students.forEach((item, i) => {
+      if (item._id == id) this.students[i] = { ...newStudent, _id: id };
+    });
     return newStudent;
   }
 }

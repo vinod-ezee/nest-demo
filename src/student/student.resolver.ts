@@ -20,4 +20,12 @@ export class StudentResolver {
   create(@Args('student') student: StudentInput): Student {
     return this.studentService.createStudent(student);
   }
+
+  @Mutation()
+  update(
+    @Args('id') id: string,
+    @Args('student') student: StudentInput,
+  ): Student {
+    return this.studentService.updateStudent(id, student);
+  }
 }
