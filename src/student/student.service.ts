@@ -32,4 +32,11 @@ export class StudentService {
     });
     return newStudent;
   }
+
+  deleteStudent(id: string): Student[] {
+    const index = this.students.findIndex((item) => item._id === id);
+
+    const a = this.students.splice(index, 1);
+    return a;
+  }
 }

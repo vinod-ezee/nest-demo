@@ -33,6 +33,7 @@ export interface IQuery {
 export interface IMutation {
     create(student?: Nullable<StudentInput>): Nullable<Student> | Promise<Nullable<Student>>;
     update(id?: Nullable<string>, student?: Nullable<StudentInput>): Nullable<Student> | Promise<Nullable<Student>>;
+    delete(id?: Nullable<string>): Nullable<Student> | Promise<Nullable<Student>>;
 }
 
 type Nullable<T> = T | null;

@@ -24,4 +24,5 @@ type Query{
 type Mutation{
     create(student:StudentInput):Student
     update(id: String, student:StudentInput):Student
+    delete(id: String):Student
 }

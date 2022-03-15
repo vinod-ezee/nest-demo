@@ -28,4 +28,9 @@ export class StudentResolver {
   ): Student {
     return this.studentService.updateStudent(id, student);
   }
+
+  @Mutation()
+  delete(@Args('id') id: string) {
+    return this.studentService.deleteStudent(id);
+  }
 }

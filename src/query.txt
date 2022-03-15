@@ -1,6 +1,6 @@
 Get All Data
 
-query{
+query getAll{
   getAllStudents{
     _id
     FirstName,
@@ -10,7 +10,7 @@ query{
 
 Add Data 
 
-mutation($student: StudentInput) {
+mutation add($student: StudentInput) {
   create(student: $student) {
     _id
     FirstName
@@ -29,5 +29,35 @@ mutation($student: StudentInput) {
     "Standard": 10,
     "FatherName": "Jagadesh",
     "MotherName": "Lalitha"
+  }
+}
+
+update Data
+
+mutation update($student: StudentInput) {
+  update(id: "abc1" ,student: $student) {
+    FirstName
+    LastName
+    Standard
+    MotherName
+    FatherName
+  }
+}
+
+{
+  "student": {
+    "FirstName": "Rohit2",
+    "LastName": "Sharma",
+    "Standard": 10,
+    "FatherName": "Jagadesh",
+    "MotherName": "Lalitha"
+  }
+}
+
+delete Data
+
+mutation delete {
+  delete(id: "hello2") {
+    _id
   }
 }
